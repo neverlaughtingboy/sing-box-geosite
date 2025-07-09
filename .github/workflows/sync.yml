@@ -46,14 +46,14 @@ jobs:
         sing-box rule-set convert --type adguard --output ./rule/adservers.srs ./rule/adservers.txt
     - name: Run script
       run: python ../main.py
-      working-directory: ./rule/
+      working-directory: ./my_rule/
     - name: Commit and push config.json
       run: |
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
-        git add ./rule/*.json
-        git add ./rule/*.srs
-        git add ./rule/*.txt
+        git add ./my_rule/*.json
+        git add ./my_rule/*.srs
+        git add ./my_rule/*.txt
 
         # 检查是否有文件被修改
         if git diff --staged --quiet; then
